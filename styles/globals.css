@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 :root {
-  /* bg-emerald-400 */
-  background-color: #34d399;
+  background-color: black;
 }
 
 h1 {

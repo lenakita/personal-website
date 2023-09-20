@@ -1,16 +1,19 @@
+'use client';
+
 import pfp from '../public/pfp-alt.jpg'
 import Image from 'next/image'
 import navigation from './nav'
 import footer from './footer'
+import { Dispatch, SetStateAction, useState } from 'react'
 
-export default function homepage() {
+export default function homepage(darkMode: boolean, setDarkMode: Dispatch<SetStateAction<boolean>>) {
   return (
-    <div className="text-center pt-[120px]">
-      <div>{navigation()}</div>
+    <div className={darkMode ? "dark" : ""}>
+      <div className="pb-10">{navigation(darkMode, setDarkMode)}</div>
       <h1>Elena Thomas</h1>
-        <div className="pt-2 pb-4">Author, software engineer, daydreamer</div>
+        <div className="pt-2 pb-4">Author, Software Engineer, Daydreamer</div>
         <div><em>
-          <span className="text-stone-600 hover:underline">
+          <span className="dark:text-stone-200 text-stone-600 hover:underline">
           <a href="https://www.stonewall.org.uk/about-us/news/international-pronouns-day">Pronouns</a>
           </span>
           : she/her and they/them
