@@ -10,7 +10,12 @@ export default function Home() {
     <div className={darkMode ? "dark" : ""}>
       <div className="dark:bg-emerald-800 dark:text-slate-100 text-slate-700 bg-emerald-400 text-center">
         <main>
-          <div>{Homepage(darkMode, setDarkMode)}</div>
+          <div>{
+          Homepage({
+            darkMode: darkMode,
+            setDarkMode: setDarkMode
+          })}
+          </div>
         </main>
       </div>
     </div>

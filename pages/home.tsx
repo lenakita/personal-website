@@ -2,14 +2,16 @@
 
 import pfp from '../public/pfp-alt.jpg'
 import Image from 'next/image'
-import navigation from './nav'
-import footer from './footer'
-import { Dispatch, SetStateAction, useState } from 'react'
+import { Footer, NavBar } from '@/utils';
+import { DarkModeProps } from '@/utils';
 
-export default function Homepage(darkMode: boolean, setDarkMode: Dispatch<SetStateAction<boolean>>) {
+export default function Homepage(props: DarkModeProps) {
+  const navigator = new NavBar();
+  const footer = new Footer();
+
   return (
-    <div className={darkMode ? "dark" : ""}>
-      <div className="pb-10">{navigation(darkMode, setDarkMode)}</div>
+    <div className={props.darkMode ? "dark" : ""}>
+      <div className="flex sm:flex-col flex-row pb-4">{navigator.navigation(props)}</div>
       <h1>Elena Thomas</h1>
         <div className="pt-2 pb-4">Author, Software Engineer, Daydreamer</div>
         <div><em>
@@ -22,7 +24,7 @@ export default function Homepage(darkMode: boolean, setDarkMode: Dispatch<SetSta
         <div className="relative mx-auto bg-gradient-to-b from-emerald-400 rounded-full w-80 h-80 mt-20 overflow-hidden md:h-96 md:w-96">
           <Image alt="Elena Thomas profile picture" src={pfp} layout="fill" objectFit="cover"/>
         </div>
-        <div>{footer()}</div>
+        <div>{footer.navigation()}</div>
     </div>
   )
 }

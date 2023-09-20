@@ -1,6 +1,6 @@
 # Personal Website
 
-Hosted on Github Pages, to be given its own custom domain in the future.
+Hosted on Github Pages: https://lenakita.github.io/personal-website/. To be given its own custom domain in the future.
 
 ## Local Setup
 
