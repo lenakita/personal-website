@@ -4,7 +4,7 @@ import { useState } from "react";
 import footer from "./footer"
 import navigation from "./nav"
 
-export default function bio() {
+export default function Bio() {
   const [darkMode, setDarkMode] = useState(true);
   return (
     <div className="text-center pt-[120px] md:pt-24">

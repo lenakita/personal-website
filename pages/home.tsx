@@ -6,7 +6,7 @@ import navigation from './nav'
 import footer from './footer'
 import { Dispatch, SetStateAction, useState } from 'react'
 
-export default function homepage(darkMode: boolean, setDarkMode: Dispatch<SetStateAction<boolean>>) {
+export default function Homepage(darkMode: boolean, setDarkMode: Dispatch<SetStateAction<boolean>>) {
   return (
     <div className={darkMode ? "dark" : ""}>
       <div className="pb-10">{navigation(darkMode, setDarkMode)}</div>

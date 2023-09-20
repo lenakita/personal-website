@@ -1,11 +1,15 @@
+'use client';
+
+import { useState } from "react";
 import footer from "./footer"
 import navigation from "./nav"
 
-export default function books() {
+export default function Books() {
+  const [darkMode, setDarkMode] = useState(true);
   return (
-    <div className="text-center pt-[120px] md:pt-24">
+    <div>
       <main>
-        <div>{navigation()}</div>
+        <div>{navigation(darkMode, setDarkMode)}</div>
         <div>{footer()}</div>
       </main>
     </div>
