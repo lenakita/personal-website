@@ -1,29 +1,25 @@
 'use client';
 
+import Footer from "@/components/Footer";
+import Navigation from "@/components/Navigation";
 import { useState } from "react";
-import { Footer, NavBar } from "@/utils";
 
 export default function Gallery() {
   const [darkMode, setDarkMode] = useState(true);
-  const navigator = new NavBar();
-  const footer = new Footer();
 
   return (
     <div className="text-center pt-[120px] md:pt-24">
-      <main>
-        <div className={darkMode ? "dark" : ""}>
-          <div>{navigator.navigation({
-            darkMode: darkMode,
-            setDarkMode: setDarkMode,
-          })}</div>
-          <div className="dark:bg-emerald-800 dark:text-slate-100 text-slate-700 bg-emerald-400 text-center">
-            <main>
-              <h1>Gallery</h1>
-            </main>
-          </div>
-          <div>{footer.navigation()}</div>
+      <div className={darkMode ? "dark" : ""}>
+        <div className="dark:bg-emerald-800 dark:text-slate-100 text-slate-700 bg-emerald-400 text-center">
+        <header>
+            <Navigation></Navigation>
+          </header>
+          <main>
+            <h1>Gallery</h1>
+          </main>
+          <Footer></Footer>
         </div>
-      </main>
+      </div>
     </div>
   )
 }
