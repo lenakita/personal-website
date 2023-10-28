@@ -8,12 +8,20 @@
   }
 }
 
-/* :root {
-  background-color: rgb(6, 78, 59);
-} */
-
 h1 {
   font-size: 2.5em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.25em;
+}
+
+a, Link {
+  @apply hover:underline;
 }
 
 #navbar-sticky {

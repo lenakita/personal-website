@@ -9,7 +9,6 @@ export default function Navigation() {
     'Books',
     'Aethia',
     'Gallery',
-    'Contact',
   ]
 
   const { systemTheme, theme, setTheme } = useTheme();
@@ -17,8 +16,8 @@ export default function Navigation() {
 
   return (
     <div>
-      <nav id="navbar-sticky" className="flex sm:flex-col flex-row pb-10 pt-10 justify-center bg-emerald-700 dark:bg-emerald-900 text-stone-200 pt-12 pb-12 border-b border-gray-700">
-        <ul className="flex">
+      <nav id="navbar-sticky" className="flex sm:flex-col flex-row pb-10 pt-10 justify-center bg-emerald-700 dark:bg-emerald-900 text-stone-200 pt-12 pb-12 pl-20 pr-20 border-b border-stone-400 dark:border-stone-200">
+        <ul className="flex rounded-lg border-2 border-stone-400 dark:border-stone-200 bg-emerald-800 pt-5 pb-5">
           {generateNavList(navItems)}
           <li className="pl-16">
             <BsMoonStarsFill
@@ -41,7 +40,7 @@ function generateNavList(navItems: string[]): React.JSX.Element[] {
       hrefLink = '/';
     }
     reactNavItems.push(<li key={navItem} className="pl-16 pr-16">
-      <Link className="font-semibold hover:underline" href={hrefLink}>
+      <Link className="font-semibold" href={hrefLink}>
         {navItem}
       </Link>
     </li>);
