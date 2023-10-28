@@ -8,10 +8,9 @@ export default function Aethia() {
   const [darkMode, setDarkMode] = useState(true);
   return (
     <div className="text-center pt-[120px] md:pt-24">
-      <div className={darkMode ? "dark" : ""}>
-        <div className="dark:bg-emerald-800 dark:text-slate-100 text-slate-700 bg-emerald-400 text-center">
+        <div className="bg-stone-300 dark:bg-gray-800 dark:text-slate-100 text-slate-700 text-center pt-20">
           <header>
-            <Navigation></Navigation>
+            <Navigation />
           </header>
           <main>
             <h1>Aethia</h1>
@@ -19,7 +18,6 @@ export default function Aethia() {
           </main>
           <Footer></Footer>
         </div>
-      </div>
     </div>
   )
 }

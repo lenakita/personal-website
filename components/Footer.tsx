@@ -10,8 +10,8 @@ export default function Footer() {
   }
 
   return (
-    <div className="flex sm:flex-col flex-row pb-10 pt-10 justify-center dark:bg-emerald-900 bg-emerald-700 text-stone-200 pt-12 pb-12">
-      <footer className="pt-16 text-stone-200">
+    <div className="flex sm:flex-col flex-row pb-10 pt-5 justify-center dark:bg-emerald-900 bg-emerald-700 text-stone-200 pt-12 pb-12 border-t border-gray-700">
+      <footer className="pt-10 text-stone-200">
           <ul className="grid grid-cols-2 gap-2">
           {generateNavList(navItems)}
         </ul>

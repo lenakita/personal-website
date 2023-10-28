@@ -1,3 +1,4 @@
+import { useTheme } from "next-themes";
 import Link from "next/link";
 import { BsMoonStarsFill } from "react-icons/bs";
 
@@ -11,14 +12,17 @@ export default function Navigation() {
     'Contact',
   ]
 
+  const { systemTheme, theme, setTheme } = useTheme();
+  const currentTheme = theme === 'system' ? systemTheme : theme;
+
   return (
-    <div className="flex sm:flex-col flex-row pb-10 pt-10 justify-center dark:bg-emerald-900 bg-emerald-700 text-stone-200 pt-12 pb-12">
-      <nav>
+    <div>
+      <nav id="navbar-sticky" className="flex sm:flex-col flex-row pb-10 pt-10 justify-center bg-emerald-700 dark:bg-emerald-900 text-stone-200 pt-12 pb-12 border-b border-gray-700">
         <ul className="flex">
           {generateNavList(navItems)}
           <li className="pl-16">
             <BsMoonStarsFill
-              onClick={() => console.log('I would set dark mode, but I am not ready for that yet :)')}
+              onClick={() => theme == "dark"? setTheme("light"): setTheme("dark")}
               className="cursor-pointer text-2xl"
             />
           </li>

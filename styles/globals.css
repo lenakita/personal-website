@@ -2,77 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  background-color: black;
+@layer base{
+  body {
+      @apply dark:bg-emerald-900 bg-emerald-700
+  }
 }
+
+/* :root {
+  background-color: rgb(6, 78, 59);
+} */
 
 h1 {
   font-size: 2.5em;
+}
+
+#navbar-sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+#pfp {
+  z-index: -1;
 }
 
 @font-face {
   font-family: "burtons";
   src: url("../public/Burtons.otf");
 }
-
-/* Custom Dark Mode Toggle Element */
-.toggle-theme-wrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 4px;
-}
-
-.toggle-theme-wrapper span {
-  font-size: 28px;
-}
-
-.toggle-theme {
-  position: relative;
-  display: inline-block;
-  height: 34px;
-  width: 60px;
-}
-
-.toggle-theme input {
-  display: none;
-}
-
-.slider {
-  background-color: #ccc;
-  position: absolute;
-  cursor: pointer;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  top: 0;
-  transition: 0.2s;
-}
-
-.slider:before {
-  background-color: #fff;
-  bottom: 4px;
-  content: "";
-  height: 26px;
-  left: 4px;
-  position: absolute;
-  transition: 0.4s;
-  width: 26px;
-}
-
-input:checked + .slider:before {
-  transform: translateX(26px);
-}
-
-input:checked + .slider {
-  background-color: cornflowerblue;
-}
-
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-
