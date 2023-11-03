@@ -46,7 +46,7 @@ export default function Homepage() {
           I conceptualised many years ago and have put pen to paper for since. I hope you all enjoy seeing 
           what I have created. ☺️
         </p>
-        <div className="relative mx-auto bg-gradient-to-b from-emerald-400 rounded-full w-80 h-80 mt-20 overflow-hidden md:h-96 md:w-96">
+        <div className="relative mx-auto bg-gradient-to-b from-emerald-400 rounded-full w-80 h-80 mt-10 overflow-hidden md:h-96 md:w-96">
           <Image id="pfp" alt="Elena Thomas profile picture" src={pfp}/>
         </div>
       </main>

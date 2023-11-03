@@ -1,8 +1,9 @@
 import { useTheme } from "next-themes";
 import Link from "next/link";
+import React from "react";
 import { BsMoonStarsFill } from "react-icons/bs";
 
-export default function Navigation() {
+export default function Navigation(): React.JSX.Element {
   const navItems: string[] = [
     'Home',
     'Bio',

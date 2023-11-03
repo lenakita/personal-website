@@ -2,12 +2,16 @@
 
 import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
+import Gallery from "@/components/Gallery";
 import Link from "next/link";
-import { useState } from "react";
+import React from "react";
+
+interface FactGridProps {
+  title: string,
+  items: Record<string, string>,
+}
 
 export default function Bio() {
-  const [darkMode, setDarkMode] = useState(true);
-
   return (
     <div className="text-center pt-[120px] md:pt-24">
         <div className="bg-stone-300 dark:bg-gray-800 dark:text-slate-100 text-slate-700 text-center pt-20">
@@ -25,20 +29,20 @@ export default function Bio() {
             come to love my characters as much as I do.
           </p>
           <br />
-          <div className="py-5 grid grid-cols-2 gap-2">
-            <ul className="list-none rounded-lg border-2 border-stone-400 dark:border-stone-800 bg-stone-300">
-              <h3 className="border-b-2 border-stone-400">Hobbies</h3>
-              <li className="py-2">
-                Writing
-              </li>
-            </ul>
-            <ul className="list-none rounded-lg border-2 border-stone-400 dark:border-stone-800 bg-stone-300">
-              <h3 className="border-b-2 border-stone-400">Favourite Things</h3>
-              <li className="py-2">
-                Chocolate
-              </li>
-            </ul>
+          <div>
+            {generateFactGrid({
+              title: 'Favourite Things',
+              items: {
+                'Fiction Book': 'Hogfather',
+                'Non-fiction Book': 'The Snow Leopard',
+                'Animated Film': 'Nausicaa of the Valley of the Wind',
+                'Live Action Film': 'Blade Runner',
+                'Video Game Series': 'Xenoblade',
+                'Food': 'Chocolate',
+              }
+            })}
           </div>
+          <br />
           <h2>Some Facts</h2>
           <ul className="list-disc text-left pt-4">
             <li className="pb-2">
@@ -51,9 +55,10 @@ export default function Bio() {
               from the setting to some of the abilities. I have vowed to keep it simpler next time...
             </li>
             <li className="pb-2">
-              I passed ABRSM Grade Eight piano aged sixteen. Since then I have sworn never to take another music exam.
-              However, I still enjoy playing from time to time. Classical and video game scores are my favourites.
-              Especially games like Xenoblade. Seriously,
+              I passed ABRSM Grade Eight piano aged sixteen. Since then I have not taken another music exam because
+              of the limitation of having to learn three pieces to perfection. I much prefer learning a variety of
+              songs and I have found that helped with my sight reading of music as well. Classical and video game scores#
+              are my favourite types of music. Especially games like Xenoblade. Seriously,
               the soundtrack is <Link
                 className="text-teal-800 dark:text-teal-100"
                 href="https://www.youtube.com/watch?v=xiZttYHSweE"
@@ -68,9 +73,9 @@ export default function Bio() {
               fortunate to have some amazing countryside on my doorstep.
             </li>
             <li className="pb-2">
-              I studied for a chemistry degree for two months at the University of Liverpool before dropping out.
-              After some time out I went back and completed a Computer Science degree which is why I now work in
-              software. In the long run it was for the best, because the creativity I can exercise with software
+              I studied for a chemistry degree for two months at the University of Liverpool before deciding to
+              change courses since I felt that something creative like Computer Science would be a better fit for me.
+              In the long run it was for the best, because the creativity I can exercise with software
               is really awesome.
             </li>
             <li>
@@ -79,8 +84,53 @@ export default function Bio() {
               ten years since.
             </li>
           </ul>
+          <Gallery images={[{
+            source: '/lennie-pfp.jpg',
+            alt: 'Lennie',
+          },
+          {
+            source: '/another-lennie-picture.jpg',
+            alt: 'Another Lennie',
+          },
+          {
+            source: '/other-lennie-pic.jpg',
+            alt: 'Yet another Lennie',
+          }]}/>
         </main>
         <Footer></Footer>
+      </div>
+    </div>
+  )
+}
+
+function generateFactGrid(props: FactGridProps): React.JSX.Element {
+  const items: React.JSX.Element[] = [];
+  const content: React.JSX.Element[] = [];
+  const style = 'py-1 border-b-2 border-stone-400 bg-stone-300 dark:bg-stone-700';
+
+  for (const item in props.items) {
+    items.push(
+      <li className={style}>
+        <em>{item}</em>
+      </li>
+    )
+    content.push(
+      <li className={style}>
+        {props.items[item]}
+      </li>
+    )
+  }
+
+  return (
+    <div className="py-5 list-none rounded-lg border-2 border-stone-400 dark:border-stone-800 bg-stone-300 dark:bg-stone-700">
+      <h3 className="pb-5 border-b-2 border-stone-400">{props.title}</h3>
+      <div className="grid grid-cols-2 gap-2">
+        <ul>
+          {...items}
+        </ul>
+        <ul>
+          {...content}
+        </ul>
       </div>
     </div>
   )

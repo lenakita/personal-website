@@ -1,7 +1,8 @@
 import Link from "next/link";
+import React from "react";
 
 
-export default function Footer() {
+export default function Footer(): React.JSX.Element {
   const navItems: Record<string, string> = {
     'Email': 'mailto:someemail@gmail.com',
     'Home': '/',
