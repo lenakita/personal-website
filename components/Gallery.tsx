@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 
 interface ImageProps {
-  source: string,
+  source: StaticImageData,
   alt: string,
 }
 

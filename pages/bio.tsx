@@ -1,5 +1,8 @@
 'use client';
 
+import LenniePfp from "../public/lennie-pfp.jpg";
+import LennieAlt from "../public/another-lennie-picture.jpg";
+import LennieOther from "../public/other-lennie-pic.jpg";
 import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
 import Gallery from "@/components/Gallery";
@@ -85,15 +88,15 @@ export default function Bio() {
             </li>
           </ul>
           <Gallery images={[{
-            source: '/lennie-pfp.jpg',
+            source: LenniePfp,
             alt: 'Lennie',
           },
           {
-            source: '/another-lennie-picture.jpg',
+            source: LennieAlt,
             alt: 'Another Lennie',
           },
           {
-            source: '/other-lennie-pic.jpg',
+            source: LennieOther,
             alt: 'Yet another Lennie',
           }]}/>
         </main>
