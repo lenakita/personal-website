@@ -23,7 +23,7 @@ export interface GalleryProps {
   images: ImageProps[],
 }
 
-export default function Gallery(images: GalleryProps): React.JSX.Element {
+export default function ImageGallery(images: GalleryProps): React.JSX.Element {
   // set a custom value in state: the image index
   const [imageIdx, setImageIdx] = useState(0);
 

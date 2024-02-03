@@ -5,7 +5,7 @@ import LennieAlt from "../public/another-lennie-picture.jpg";
 import LennieOther from "../public/other-lennie-pic.jpg";
 import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
-import Gallery from "@/components/Gallery";
+import ImageGallery from "@/components/Gallery";
 import Link from "next/link";
 import React from "react";
 
@@ -87,7 +87,7 @@ export default function Bio() {
               ten years since.
             </li>
           </ul>
-          <Gallery images={[{
+          <ImageGallery images={[{
             source: LenniePfp,
             alt: 'Lennie',
           },
