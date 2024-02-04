@@ -9,8 +9,15 @@ export enum Genres {
   MYSTERY='Mystery'
 }
 
+export enum Status {
+  IN_PROGESS='In Progress',
+  PROOF_READING='Proof Reading',
+  PUBLISHED='Published'
+}
+
 export interface BookProps {
   title: string,
+  status: Status,
   genres: Genres[],
   series: BookSeries,
   description: string
@@ -33,6 +40,7 @@ export default function Book(props: BookProps): React.JSX.Element {
         <h2>{props.title}</h2>
         <hr className="h-px mb-2 mt-2 bg-gray-400 border-0 dark:bg-gray-700"/>
         <ul className="ml-4 mb-2 list-disc">
+          <li><b>Status</b>: {props.status}</li>
           <li><b>Genres</b>: {...props.genres}</li>
           <li><b>Series</b>: {props.series}</li>
         </ul>

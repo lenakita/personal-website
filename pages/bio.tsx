@@ -17,14 +17,14 @@ interface FactGridProps {
 export default function Bio() {
   return (
     <div className="text-center pt-[120px] md:pt-24">
-        <div className="bg-stone-300 dark:bg-gray-800 dark:text-slate-100 text-slate-700 text-center pt-20">
+        <div className="bg-stone-300 dark:bg-gray-800 dark:text-slate-100 text-slate-700 pt-20">
         <header>
-          <Navigation />
+          <Navigation/>
         </header>
-        <main className="text-center mx-auto max-w-prose pb-5">
+        <main className="mx-auto max-w-prose pb-5">
           <h1>About Me</h1>
           <br />
-          <p>
+          <p className="text-left">
             Hello again, and welcome to the bio page of my website. I hope that sharing a little about myself 
             can help in understanding my work and how I write. I love diversity of people in media, be that books, 
             films or video games because it&apos;s a reflection of real life. A lot of my characters, unintentionally mind 
@@ -32,7 +32,8 @@ export default function Bio() {
             come to love my characters as much as I do.
           </p>
           <br />
-          <div>
+          <h2 className="pb-4">Favourite Things</h2>
+          <div className="pl-24">
             {generateFactGrid({
               title: 'Favourite Things',
               items: {
@@ -87,20 +88,22 @@ export default function Bio() {
               ten years since.
             </li>
           </ul>
-          <ImageGallery images={[{
-            source: LenniePfp,
-            alt: 'Lennie',
-          },
-          {
-            source: LennieAlt,
-            alt: 'Another Lennie',
-          },
-          {
-            source: LennieOther,
-            alt: 'Yet another Lennie',
-          }]}/>
+          <div className="pb-10">
+            <ImageGallery images={[{
+              source: LenniePfp,
+              alt: 'Lennie',
+            },
+            {
+              source: LennieAlt,
+              alt: 'Another Lennie',
+            },
+            {
+              source: LennieOther,
+              alt: 'Yet another Lennie',
+            }]}/>
+          </div>
         </main>
-        <Footer></Footer>
+        <Footer/>
       </div>
     </div>
   )
@@ -108,33 +111,34 @@ export default function Bio() {
 
 function generateFactGrid(props: FactGridProps): React.JSX.Element {
   const items: React.JSX.Element[] = [];
-  const content: React.JSX.Element[] = [];
-  const style = 'py-1 border-b-2 border-stone-400 bg-stone-300 dark:bg-stone-700';
+  const style = 'py-1 pr-10';
 
   for (const item in props.items) {
     items.push(
-      <li className={style}>
-        <em>{item}</em>
-      </li>
-    )
-    content.push(
-      <li className={style}>
-        {props.items[item]}
-      </li>
+      <tr>
+        <td className={style}>
+          <em>{item}</em>
+        </td>
+        <td className={style}>
+          {props.items[item]}
+        </td>
+      </tr>
     )
   }
 
   return (
-    <div className="py-5 list-none rounded-lg border-2 border-stone-400 dark:border-stone-800 bg-stone-300 dark:bg-stone-700">
-      <h3 className="pb-5 border-b-2 border-stone-400">{props.title}</h3>
-      <div className="grid grid-cols-2 gap-2">
-        <ul>
+    <div>
+      <table className="table-auto">
+        <thead>
+          <tr className="border-b-2 border-stone-400 bg-stone-300 dark:bg-stone-700">
+            <th className="pr-10">
+              Thing
+            </th>
+            <th className="pr-10">Favourite</th>
+          </tr>
           {...items}
-        </ul>
-        <ul>
-          {...content}
-        </ul>
-      </div>
+        </thead>
+      </table>
     </div>
   )
 }

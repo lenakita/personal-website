@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Image, { StaticImageData } from 'next/image'
+import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 
 interface ImageProps {
   source: StaticImageData,
@@ -36,35 +37,44 @@ export default function ImageGallery(images: GalleryProps): React.JSX.Element {
   // TODO: set there to be previews of images on either side in the grid
   // also make handling columns more elegant
   return (
-    <div className="mx-auto grid grid-cols-8 gap-10 pr-10 pt-10">
-      <button className="rounded-lg bg-stone-400 dark:bg-stone-700 h-10 w-10 align-middle" onClick={() => changeImage({
-        incOrDec: IncreaseOrDecrease.DECREASE,
-        imageIdx: imageIdx,
-        numImages: images.images.length,
-        setImageIdx: setImageIdx,
-      })}>
-        &lt;--
-      </button>
-      <div></div>
-      <div>{convertedImages[imageIdx]}</div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <button className="rounded-lg bg-stone-400 dark:bg-stone-700 h-10 w-10" onClick={() => changeImage({
-        incOrDec: IncreaseOrDecrease.INCREASE,
-        imageIdx: imageIdx,
-        numImages: images.images.length,
-        setImageIdx: setImageIdx,
-      })}>
-        --&gt;
-      </button>
+    <div className="mx-auto flex-auto gap-10 pr-10 pt-10">
+      <table className="ml-10">
+        <tbody>
+          <tr>
+            <td className="pr-10">
+              <button onClick={() => changeImage({
+                incOrDec: IncreaseOrDecrease.DECREASE,
+                imageIdx: imageIdx,
+                numImages: images.images.length,
+                setImageIdx: setImageIdx,
+              })}>
+                <BsArrowLeft className="p-2 rounded-lg bg-stone-400 dark:bg-stone-700 h-10 w-10 hover:scale-125"/>
+              </button>
+            </td>
+            <td>
+              {convertedImages[imageIdx]}
+            </td>
+            <td className="pl-10">
+              <button onClick={() => changeImage({
+                incOrDec: IncreaseOrDecrease.INCREASE,
+                imageIdx: imageIdx,
+                numImages: images.images.length,
+                setImageIdx: setImageIdx,
+              })}
+              >
+                <BsArrowRight className="p-2 rounded-lg bg-stone-400 dark:bg-stone-700 h-10 w-10 hover:scale-125"/>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   )
 }
 
 function wrapImage(props: ImageProps, index: string) {
   return(
-    <div className="relative mx-auto bg-gradient-to-b from-emerald-400 rounded-full w-60 h-60 mt-10 overflow-hidden md:h-60 md:w-60">
+    <div className="relative mx-auto bg-gradient-to-b from-emerald-400 rounded-full w-100 h-100 mt-10 overflow-hidden md:h-80 md:w-80">
       <Image id={index} alt={props.alt} fill={true} src={props.source}/>
     </div>
   )

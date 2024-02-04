@@ -11,11 +11,11 @@ export default function Homepage() {
   return (
     <div className="bg-stone-300 dark:bg-gray-800 dark:text-slate-100 text-slate-700 text-center pt-40">
       <header>
-        <Navigation />
+        <Navigation/>
       </header>
       <main className="pb-10">
         <h1>Elena Thomas</h1>
-        <div className="pt-2 pb-4">Author, Software Engineer, Daydreamer</div>
+        <div className="pt-2 pb-4">Author, Software Engineer, Eternal Hobbyist</div>
         <div><em>
           <span className="text-stone-600 dark:text-stone-200 hover:underline">
           <Link href="https://www.stonewall.org.uk/about-us/news/international-pronouns-day">Pronouns</Link>
@@ -50,7 +50,7 @@ export default function Homepage() {
           <Image id="pfp" alt="Elena Thomas profile picture" src={pfp}/>
         </div>
       </main>
-      <Footer></Footer>
+      <Footer/>
     </div>
   )
 }

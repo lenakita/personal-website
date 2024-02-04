@@ -31,6 +31,12 @@ a, Link {
   z-index: 1;
 }
 
+#sidenav-sticky {
+  position: fixed;
+  top: 12em;
+  margin-left: 4.5em;
+}
+
 #pfp {
   z-index: -1;
 }
